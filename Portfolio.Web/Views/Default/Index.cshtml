@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<!-- Hero Section -->
+@await Component.InvokeAsync("_DefaultHeroComponent")
+<!-- /Hero Section -->
+<!-- About Section -->
+@await Component.InvokeAsync("_DefaultAboutComponent")
+<!-- /About Section -->
+<!-- Resume Section -->
+@await Component.InvokeAsync("_DefaultResumeComponent")
+<!-- /Resume Section -->
+<!-- Skills Section -->
+@await Component.InvokeAsync("_DefaultSkillsComponent")
+<!-- /Skills Section -->
+<!-- Stats Section -->
+@await Component.InvokeAsync("_DefaultStatsComponent")
+<!-- /Stats Section -->
+<!-- Testimonials Section -->
+@await Component.InvokeAsync("_DefaultTestimonialsComponent")
+<!-- /Testimonials Section -->
+<!-- Portfolio Section -->
+@await Component.InvokeAsync("_DefaultProjectsComponent")
+<!-- /Portfolio Section -->
+<!-- Contact Section -->
+@await Component.InvokeAsync("_DefaultContactComponent")
+<!-- /Contact Section -->

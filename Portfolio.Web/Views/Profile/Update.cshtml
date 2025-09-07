@@ -1,0 +1,47 @@
+﻿@model Portfolio.Web.Models.ProfileUpdateViewModel
+
+@{
+    ViewData["Title"] = "Profil Güncelleme";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h3>Profil Güncelleme</h3>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<form asp-action="Update" method="post">
+    <div class="mb-3">
+        <label>Kullanıcı Adı</label>
+        <input type="text" class="form-control" asp-for="UserName" placeholder="Kullanıcı adınızı girin" />
+        <span class="text-danger" asp-validation-for="UserName"></span>
+    </div>
+
+    <hr />
+
+    <div class="mb-3">
+        <label>Mevcut Şifre</label>
+        <input type="password" class="form-control" asp-for="CurrentPassword" placeholder="Mevcut şifrenizi girin" />
+        <span class="text-danger" asp-validation-for="CurrentPassword"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Yeni Şifre</label>
+        <input type="password" class="form-control" asp-for="NewPassword" placeholder="Yeni şifrenizi girin" />
+        <span class="text-danger" asp-validation-for="NewPassword"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Yeni Şifre (Tekrar)</label>
+        <input type="password" class="form-control" asp-for="ConfirmNewPassword" placeholder="Yeni şifrenizi tekrar girin" />
+        <span class="text-danger" asp-validation-for="ConfirmNewPassword"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

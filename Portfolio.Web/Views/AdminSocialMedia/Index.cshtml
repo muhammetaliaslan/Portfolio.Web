@@ -1,0 +1,33 @@
+﻿@model Portfolio.Web.Entities.SocialMedia
+@{
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h3>Sosyal Medya Hesapları</h3>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form asp-action="Update" method="post">
+    <div class="mb-3">
+        <label>Twitter</label>
+        <input type="text" class="form-control" asp-for="Twitter" />
+    </div>
+    <div class="mb-3">
+        <label>Facebook</label>
+        <input type="text" class="form-control" asp-for="Facebook" />
+    </div>
+    <div class="mb-3">
+        <label>Instagram</label>
+        <input type="text" class="form-control" asp-for="Instagram" />
+    </div>
+    <div class="mb-3">
+        <label>LinkedIn</label>
+        <input type="text" class="form-control" asp-for="LinkedIn" />
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>

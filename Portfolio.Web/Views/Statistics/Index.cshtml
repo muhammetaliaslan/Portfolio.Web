@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "İstatistikler";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="row">
+    <!-- 1. Proje Sayısı -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-primary">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.projectCount</h3>
+                <span class="m-t-10">Proje Sayısı</span>
+                <i class="fa fa-clipboard"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Yetenek Ortalaması -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-info">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.skillAverage</h3>
+                <span class="m-t-10">Yetenek Ortalaması</span>
+                <i class="fa fa-cogs"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Okunmamış Mesajlar -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-dark">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.unreadMessageCount</h3>
+                <span class="m-t-10">Okunmamış Mesaj Sayısı</span>
+                <i class="fa fa-envelope"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Son Mesaj Gönderen -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-danger">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.lastMessageOwner</h3>
+                <span class="m-t-10">Son Mesaj Gönderen Kişi</span>
+                <i class="fa fa-user"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <!-- 5. Deneyim Yılı -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-warning">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.experienceYear</h3>
+                <span class="m-t-10">Deneyim Yılı</span>
+                <i class="fa fa-suitcase"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Çalıştığı Şirket Sayısı -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-success">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.companyCount</h3>
+                <span class="m-t-10">Çalıştığı Toplam Şirket</span>
+                <i class="fa fa-building"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Deneyim Sayısı -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-info">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.experienceCount</h3>
+                <span class="m-t-10">Deneyim Sayısı</span>
+                <i class="fa fa-suitcase"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Yetenek Sayısı -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-secondary">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.skillCount</h3>
+                <span class="m-t-10">Yetenek Sayısı</span>
+                <i class="fa fa-cogs"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <!-- 9. Gelen Mesaj Sayısı -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-primary">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.messageCount</h3>
+                <span class="m-t-10">Gelen Mesaj Sayısı</span>
+                <i class="fa fa-envelope"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. Ortalama Değerlendirme -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-dark">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.reviewAverage</h3>
+                <span class="m-t-10">Ortalama Değerlendirme</span>
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. En Yüksek Değerlendirme Yapan -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-danger">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.MaxReviewOwner</h3>
+                <span class="m-t-10">En Yüksek Değerlendirme Yapan</span>
+                <i class="fa fa-user"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12. Toplam Proje (Tekrar) -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-info">
+            <div class="card-body">
+                <h3 class="text-white m-0">@ViewBag.projectCount</h3>
+                <span class="m-t-10">Toplam Proje</span>
+                <i class="fa fa-clipboard"></i>
+            </div>
+        </div>
+    </div>
+</div>

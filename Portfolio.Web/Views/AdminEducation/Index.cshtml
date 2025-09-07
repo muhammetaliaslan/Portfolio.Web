@@ -1,0 +1,42 @@
+﻿@model List<Portfolio.Web.Entities.Education>
+
+@{
+    ViewData["Title"] = "Eğitim Yönetimi";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+
+<div class="pc-container">
+    <div class="pc-content">
+        <h2>Eğitim Listesi</h2>
+        <a class="btn btn-primary mb-2" asp-action="Create">Yeni Eğitim Ekle</a>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Okul Adı</th>
+                    <th>Bölüm</th>
+                    <th>Başlangıç Yılı</th>
+                    <th>Bitiş Yılı</th>
+                    <th>Aksiyon</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var edu in Model)
+                {
+                    <tr>
+                        <td>@edu.EducationId</td>
+                        <td>@edu.SchoolName</td>
+                        <td>@edu.Department</td>
+                        <td>@edu.StartYear</td>
+                        <td>@edu.EndYear ?? "Devam Ediyor"</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@edu.EducationId">Düzenle</a>
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@edu.EducationId">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

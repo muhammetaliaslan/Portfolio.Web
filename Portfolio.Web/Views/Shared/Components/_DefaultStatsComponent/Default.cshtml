@@ -1,0 +1,64 @@
+﻿@using Portfolio.Web.Context
+@inject PortfolioContext _context
+
+<section id="stats" class="stats section bg-light py-5">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="section-title text-center mb-5">
+            <h2>İstatistikler</h2>
+            <p>Hakkımda Kısa Bilgiler</p>
+        </div>
+
+        <div class="row gy-4 justify-content-center">
+
+            <!-- Proje Sayısı -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center p-4 shadow-sm rounded bg-white">
+                    <span class="purecounter fs-2 fw-bold"
+                          data-purecounter-start="0"
+                          data-purecounter-end="@_context.Projects.Count()"
+                          data-purecounter-duration="1"></span>
+                    <p class="mt-2">Proje Sayısı</p>
+                </div>
+            </div>
+
+            <!-- Yetenek Ortalaması -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center p-4 shadow-sm rounded bg-white">
+                    <span class="purecounter fs-2 fw-bold"
+                          data-purecounter-start="0"
+                          data-purecounter-end="@(_context.Skills.Any() ? _context.Skills.Average(x => x.Percentage) : 0)"
+                          data-purecounter-duration="1"></span>
+                    <p class="mt-2">Yetenek Ortalaması (%)</p>
+                </div>
+            </div>
+
+            <!-- Deneyim Yılı -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center p-4 shadow-sm rounded bg-white">
+                    @{
+                        var startYear = _context.Experiences.Any() ? _context.Experiences.Min(x => x.StartYear) : DateTime.Now.Year;
+                        var experienceYear = DateTime.Now.Year - startYear;
+                    }
+                    <span class="purecounter fs-2 fw-bold"
+                          data-purecounter-start="0"
+                          data-purecounter-end="@experienceYear"
+                          data-purecounter-duration="1"></span>
+                    <p class="mt-2">Deneyim Yılı</p>
+                </div>
+            </div>
+
+            <!-- Çalıştığı Toplam Şirket -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-item text-center p-4 shadow-sm rounded bg-white">
+                    <span class="purecounter fs-2 fw-bold"
+                          data-purecounter-start="0"
+                          data-purecounter-end="@_context.Experiences.Select(x => x.Company).Distinct().Count()"
+                          data-purecounter-duration="1"></span>
+                    <p class="mt-2">Çalıştığı Toplam Şirket</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

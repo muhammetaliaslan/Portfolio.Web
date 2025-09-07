@@ -1,0 +1,21 @@
+﻿@model Portfolio.Web.Entities.UserMessage
+@{
+    ViewData["Title"] = "Mesaj Detayı";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h4 class="mb-4">Mesaj Detayı</h4>
+
+<div class="card">
+    <div class="card-header">
+        <strong>Gönderen:</strong> @Model.Name (@Model.Email) <br />
+        <strong>Konu:</strong> @Model.Subject
+    </div>
+    <div class="card-body">
+        <p>@Model.MessageBody</p>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-secondary" href="@Url.Action("Index", "AdminMessage")">Geri Dön</a>
+    </div>
+</div>
+

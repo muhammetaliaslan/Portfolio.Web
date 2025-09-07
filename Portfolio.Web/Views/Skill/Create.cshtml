@@ -1,0 +1,27 @@
+﻿@model Portfolio.Web.Entities.Skill
+@{
+    ViewData["Title"] = "Yeni Yetenek Ekle";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <h2>Yeni Yetenek Ekle</h2>
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label class="form-label">Başlık</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Yüzde</label>
+                <input asp-for="Percentage" type="number" class="form-control" />
+                <span asp-validation-for="Percentage" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Kaydet</button>
+            <a asp-action="Index" class="btn btn-secondary">İptal</a>
+        </form>
+    </div>
+</div>

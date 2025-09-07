@@ -1,0 +1,37 @@
+﻿@model List<Portfolio.Web.Entities.Testimonial>
+@{
+    ViewData["Title"] = "Testimonial Listesi";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h2>Testimonial Listesi</h2>
+<a class="btn btn-primary mb-3" asp-action="Create">Yeni Ekle</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Başlık</th>
+            <th>Yorum</th>
+            <th>Puan</th>
+            <th>Resim URL</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Name</td>
+                <td>@t.Title</td>
+                <td>@t.Comment</td>
+                <td>@t.Review</td>
+                <td>@t.ImageUrl</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@t.TestimonialId">Düzenle</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@t.TestimonialId" onclick="return confirm('Silmek istediğinizden emin misiniz?');">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

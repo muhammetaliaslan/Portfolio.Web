@@ -1,0 +1,37 @@
+﻿@{
+    var educations = ViewData["Educations"] as List<Portfolio.Web.Entities.Education>;
+    var experiences = ViewData["Experiences"] as List<Portfolio.Web.Entities.Experience>;
+}
+
+<section id="resume" class="resume section">
+    <div class="container">
+        <div class="row">
+            <!-- Eğitimler -->
+            <div class="col-lg-6">
+                <h3>Eğitim Hayatım</h3>
+                @foreach (var edu in educations)
+                {
+                    <div class="resume-item">
+                        <h4>@edu.SchoolName - @edu.Department</h4>
+                        <span>@edu.StartYear - @(string.IsNullOrEmpty(edu.EndYear) ? "Devam Ediyor" : edu.EndYear)</span>
+                        <p>@edu.Description</p>
+                    </div>
+                }
+            </div>
+
+            <!-- Deneyimler -->
+            <div class="col-lg-6">
+                <h3>Deneyimlerim</h3>
+                @foreach (var exp in experiences)
+                {
+                    <div class="resume-item">
+                        <h4>@exp.Title - @exp.Company</h4>
+                        <span>@exp.StartYear - @(string.IsNullOrEmpty(exp.EndYear) ? "Devam Ediyor" : exp.EndYear)</span>
+                        <p>@exp.Description</p>
+                        <p>@exp.City</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

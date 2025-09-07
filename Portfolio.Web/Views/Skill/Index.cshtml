@@ -1,0 +1,37 @@
+﻿@model List<Portfolio.Web.Entities.Skill>
+@{
+    ViewData["Title"] = "Yeteneklerim Yönetimi";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <h2>Yeteneklerim</h2>
+        <a class="btn btn-primary mb-2" asp-action="Create">Yeni Yetenek Ekle</a>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>Yüzde</th>
+                    <th>Aksiyon</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var skill in Model)
+                {
+                    <tr>
+                        <td>@skill.SkillId</td>
+                        <td>@skill.Title</td>
+                        <td>@skill.Percentage %</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@skill.SkillId">Düzenle</a>
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@skill.SkillId">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

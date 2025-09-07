@@ -1,0 +1,44 @@
+﻿@model List<Portfolio.Web.Entities.Experience>
+
+@{
+    ViewData["Title"] = "Deneyimlerim";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <h2>Deneyimlerim</h2>
+        <a class="btn btn-primary mb-2" asp-action="Create">Yeni Deneyim Ekle</a>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>Şirket</th>
+                    <th>Şehir</th>
+                    <th>Başlangıç Yılı</th>
+                    <th>Bitiş Yılı</th>
+                    <th>Aksiyon</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var exp in Model)
+                {
+                    <tr>
+                        <td>@exp.ExperienceId</td>
+                        <td>@exp.Title</td>
+                        <td>@exp.Company</td>
+                        <td>@exp.City</td>
+                        <td>@exp.StartYear</td>
+                        <td>@exp.EndYear ?? "Devam Ediyor"</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@exp.ExperienceId">Düzenle</a>
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@exp.ExperienceId">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

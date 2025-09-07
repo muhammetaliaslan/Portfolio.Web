@@ -1,0 +1,43 @@
+﻿@model Portfolio.Web.Entities.Education
+
+@{
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <h2>Yeni Eğitim Ekle</h2>
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label class="form-label">Okul Adı</label>
+                <input asp-for="SchoolName" class="form-control" />
+                <span asp-validation-for="SchoolName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Bölüm</label>
+                <input asp-for="Department" class="form-control" />
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Başlangıç Yılı</label>
+                <input asp-for="StartYear" class="form-control" />
+                <span asp-validation-for="StartYear" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Bitiş Yılı</label>
+                <input asp-for="EndYear" class="form-control" />
+                <span asp-validation-for="EndYear" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Açıklama</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Kaydet</button>
+            <a asp-action="Index" class="btn btn-secondary">İptal</a>
+        </form>
+

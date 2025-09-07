@@ -1,0 +1,42 @@
+﻿@model List<Portfolio.Web.Entities.ContactInfo>
+@{
+    ViewData["Title"] = "İletişim Bilgileri";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h4 class="mb-4">İletişim Bilgileri</h4>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Adres</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Map URL</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Address</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Email</td>
+                <td><a href="@item.MapUrl" target="_blank">Göster</a></td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", "AdminContact", new { id = item.ContactInfoId })">Düzenle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
